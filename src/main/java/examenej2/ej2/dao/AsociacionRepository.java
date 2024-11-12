@@ -1,5 +1,6 @@
 package examenej2.ej2.dao;
 
+import examenej2.ej2.entity.Asociacion;
 import examenej2.ej2.entity.Entrenador;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
@@ -8,10 +9,10 @@ import java.util.Optional;
 
 
 @RepositoryRestResource
-public interface EntrenadorRepository extends JpaRepository<Entrenador,Long> {
+public interface AsociacionRepository extends JpaRepository<Asociacion,Long> {
 
-    Optional<Entrenador> findByNombre(String nombre);
+    Optional<Asociacion> findByNombre(String nombre);
 
 
-    boolean existsById(String nombre);
+    boolean existsByNombre(String nombre);
 }

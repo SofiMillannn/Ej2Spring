@@ -1,6 +1,7 @@
 package examenej2.ej2.dao;
 
 import examenej2.ej2.entity.Entrenador;
+import examenej2.ej2.entity.Paloma;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
@@ -8,10 +9,10 @@ import java.util.Optional;
 
 
 @RepositoryRestResource
-public interface EntrenadorRepository extends JpaRepository<Entrenador,Long> {
+public interface PalomaRepository extends JpaRepository<Paloma,Long> {
 
-    Optional<Entrenador> findByNombre(String nombre);
+    Optional<Paloma> findByApodo(String apodo);
 
 
-    boolean existsById(String nombre);
+    boolean existsByApodo(String apodo);
 }

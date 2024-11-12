@@ -1,5 +1,6 @@
 package examenej2.ej2.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -8,30 +9,27 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "entrenador")
+@Table(name = "paloma")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Entrenador {
+public class Paloma {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "dorsal")
     private Long dorsal;
-    @Column(name = "dorsal")
-    private String nombre;
-    @Column(name = "dorsal")
-    private String apellidos;
-    @Column(name = "dorsal")
-    private String tempActivo;
+    @Column(name = "apodo")
+    private String apodo;
+    @Column(name = "edad")
+    private int edad;
+
 
     @OneToOne(cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
-    @JsonManagedReference
-    private Paloma paloma;
+    @JsonBackReference
+    private Entrenador entrenador;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "asociacion_id", nullable = false)
-    private Asociacion asociacion;
+
 
 }

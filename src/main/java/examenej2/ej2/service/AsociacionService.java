@@ -1,7 +1,7 @@
 package examenej2.ej2.service;
 
-import examenej2.ej2.dao.EntrenadorRepository;
-import examenej2.ej2.entity.Entrenador;
+import examenej2.ej2.dao.AsociacionRepository;
+import examenej2.ej2.entity.Asociacion;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,32 +11,32 @@ import java.util.Optional;
 
 @Service
 @Transactional
-public class EntrenadorService {
+public class AsociacionService {
     @Autowired
-    private EntrenadorRepository entrenadorRepository;
-    public List<Entrenador> list(){
+    private AsociacionRepository entrenadorRepository;
+    public List<Asociacion> list(){
         return entrenadorRepository.findAll();
     }
-    public Optional<Entrenador> getById(Long dorsal){
-        return entrenadorRepository.findById(dorsal);
+    public Optional<Asociacion> getById(Long id){
+        return entrenadorRepository.findById(id);
     }
-    public Optional<Entrenador> getByNombre(String nombre){
+    public Optional<Asociacion> getByNombre(String nombre){
         return entrenadorRepository.findByNombre(nombre);
     }
-
-    public void save(Entrenador entrenador){
+    
+    public void save(Asociacion entrenador){
         entrenadorRepository.save(entrenador);
     }
-    public  void delete(Long dorsal){
-        entrenadorRepository.deleteById(dorsal);
+    public  void delete(Long id){
+        entrenadorRepository.deleteById(id);
     }
-    public boolean existsByIdDorsal(long dorsal){
-        return entrenadorRepository.existsById(dorsal);
-
-    }
-    public boolean existsByNombreDorsal(String nombre){
+    public boolean existsByIdDorsal(long id){
+        return entrenadorRepository.existsById(id);
+        
+    }  
+    public boolean existsByNombre(String nombre){
         return entrenadorRepository.existsByNombre(nombre);
-
+        
     }
-
+    
 }
